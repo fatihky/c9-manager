@@ -97,7 +97,6 @@ function startIDE(ide, cb) {
       });
 
       cmd.on('close', (code) => {
-        console.log(`child process exited with code ${code}`);
         if (code != 0) {
           console.log('exit code:', code);
           console.log('stdout:', stdout);

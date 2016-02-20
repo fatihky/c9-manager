@@ -7,11 +7,17 @@
 
 <body>
   {% for ide in ides %}
-    {{ ide.name }} - port: {{ ide.port }}
-      <a href="{{baseaddr}}:{{ide.port}}/ide.html" target="_blank">
-        [open in new tab]
+    <b>{{ ide.name }}</b> -
+      <b>port</b>: {{ ide.port }}
+      <b>dir</b>: {{ ide.dir }}
+      <a href="/ides/{{ide._id}}">
+        [details]
       </a>
+      <br/>
   {% endfor %}
+
+  <br/><br/>
+  <a href="/ides/add">Add New IDE</a>
 </body>
 
 </html>

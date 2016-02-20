@@ -9,13 +9,18 @@
 
   <h4>{{ ide.name }}</h4>
   <p>
-    port: {{ ide.port }}<br/>
-    dir: {{ ide.dir }}<br/>
+    <b>port</b>: {{ ide.port }}<br/>
+    <b>dir</b>: {{ ide.dir }}<br/>
     <a href="{{baseaddr}}:{{ide.port}}/ide.html" target="_blank">
       [open in new tab]
     </a>
+    <br/>
+    <a href="/ides/start/{{ ide._id }}" target="_blank">
+      [start ide]
+    </a>
   </p>
-
+  <br/>
+  <a href="/ides">Return to ides page.</a>
 </body>
 
 </html>
