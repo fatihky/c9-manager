@@ -29,12 +29,19 @@ function index(req, res) {
 function add(req, res) {
   var port = null;
   var checkPort = false;
+  var user = null;
+  var pass = null;
 
-  // validation
+  // validation and input processing
   if (typeof req.body.name !== 'string' || req.body.name.length === 0)
     return res.send('name is required.');
   if (typeof req.body.dir !== 'string' || req.body.dir.length === 0)
     return res.send('dir is required.');
+  if (typeof req.body.user !== 'string' && req.body.user.length > 0)
+    user = req.body.user;
+  if (typeof req.body.pass !== 'string' && req.body.pass.length > 0)
+    pass = req.body.pass;
+
   if (typeof req.body.port === 'string' && req.body.port.length > 0) {
     port = parseInt(req.body.port, 10);
 
@@ -71,7 +78,9 @@ function add(req, res) {
       IDE.insert({
         name: req.body.name,
         dir: req.body.dir,
-        port: port
+        port: port,
+        user: user,
+        pass: pass
       }, done);
     }
   ], function (err) {
