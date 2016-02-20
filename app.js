@@ -1,6 +1,7 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var app = express();
+var config = require('./config');
 var routes = require('./routes');
 var IDE = require('./models/ide').db;
 var portFinder = require('./helpers/port-finder');
