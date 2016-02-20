@@ -9,7 +9,7 @@ IDE.find({}, function (err, docs) {
     process.exit(1);
   }
 
-  async.seach(docs, function (ide) {
+  async.each(docs, function (ide, done) {
     startIDE(ide._id, function (err, res) {
       console.log('ide:', ide);
       console.log(err, res);
