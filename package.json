@@ -1,0 +1,34 @@
+{
+  "name": "c9-manager",
+  "version": "0.0.1",
+  "description": "Manager for c9 ide.",
+  "main": "app.js",
+  "dependencies": {
+    "async": "^1.5.2",
+    "bluebird": "^3.3.1",
+    "body-parser": "^1.15.0",
+    "express": "^4.13.4",
+    "is-running": "^2.0.0",
+    "mkdirp": "^0.5.1",
+    "nedb": "^1.8.0",
+    "swig": "^1.4.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fatihky/c9-manager.git"
+  },
+  "keywords": [
+    "c9",
+    "ide"
+  ],
+  "author": "Fatih Kaya <1994274@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fatihky/c9-manager/issues"
+  },
+  "homepage": "https://github.com/fatihky/c9-manager#readme"
+}
