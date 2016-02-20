@@ -136,7 +136,7 @@ function start(req, res) {
 }
 
 function remove(req, res) {
-  IDE.remove({_id: req.params.id}, function (err, res) {
+  IDE.remove({_id: req.params.id}, function (err, result) {
     res.redirect('/ides');
   });
 }
