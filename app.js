@@ -3,7 +3,7 @@ var bodyParser = require('body-parser');
 var app = express();
 var routes = require('./routes');
 
-var portFinder = require('./helpers/find-port');
+var portFinder = require('./helpers/port-finder');
 
 portFinder()
   .then(port => console.log('port:', port))

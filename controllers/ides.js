@@ -1,6 +1,7 @@
 var async = require('async');
 var IDE = require('../models/ide').db;
-var portFinder = require('../helpers/find-port');
+var portFinder = require('../helpers/port-finder');
+var portChecker = require('../helpers/port-checker');
 
 function index(req, res) {
   IDE
@@ -17,6 +18,7 @@ function index(req, res) {
 
 function add(req, res) {
   var port = null;
+  var checkPort = false;
 
   // validation
   if (typeof req.body.name !== 'string' || req.body.name.length === 0)
@@ -28,11 +30,13 @@ function add(req, res) {
 
     if (isNaN(port) || port < 1000 || port > 65000)
       port = null;
+    else
+      checkPort = true;
   }
 
   async.series([
     function findPort(done) {
-      if (port !== null)
+      if (checkPort !== false)
         return process.nextTick(done);
 
       portFinder()
@@ -41,10 +45,24 @@ function add(req, res) {
           done();
         })
         .catch(done);
+    }, function checkPortAsync(done) {
+      if (checkPort !== true)
+        return process.nextTick(done);
+
+      portChecker(port).then(isUsed => {
+        if (!isUsed)
+          return done();
+
+        res.send('port already used by another process or ide');
+
+        done({responseSent: true});
+      }).catch(done);
     }
   ], function (err) {
     if (err)
-      return res.status(500).send('internal server error');
+      return err.responseSent !== true
+             ? res.status(500).send('internal server error')
+             : null;
 
     res.send('port: ' + port);
     // res.redirect('/');
