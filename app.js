@@ -23,4 +23,4 @@ app.use(bodyParser.json());
 // apply routes
 routes(app);
 
-app.listen(4715, '0.0.0.0');
+app.listen(config.httpPort, '0.0.0.0');
