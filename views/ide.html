@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>{{ ide.name }} - c9 manager</title>
+</head>
+
+<body>
+
+  <h4>{{ ide.name }}</h4>
+  <p>
+    port: {{ ide.port }}<br/>
+    dir: {{ ide.dir }}<br/>
+    <a href="{{baseaddr}}:{{ide.port}}/ide.html" target="_blank">
+      [open in new tab]
+    </a>
+  </p>
+
+</body>
+
+</html>

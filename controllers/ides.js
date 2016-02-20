@@ -7,6 +7,10 @@ var portFinder = require('../helpers/port-finder');
 var portChecker = require('../helpers/port-checker');
 var indexTpl = swig.compileFile(
                 path.resolve(path.join(__dirname, '../views/ides.html')));
+var addTpl = swig.compileFile(
+                path.resolve(path.join(__dirname, '../views/ides-add.html')));
+var ideTpl = swig.compileFile(
+                path.resolve(path.join(__dirname, '../views/ide.html')));
 
 function index(req, res) {
   IDE
@@ -26,11 +30,16 @@ function index(req, res) {
     });
 }
 
+function addUi(req, res) {
+  res.send(addTpl());
+}
+
 function add(req, res) {
   var port = null;
   var checkPort = false;
   var user = null;
   var pass = null;
+  var _id = null;
 
   // validation and input processing
   if (typeof req.body.name !== 'string' || req.body.name.length === 0)
@@ -75,13 +84,22 @@ function add(req, res) {
         done({responseSent: true});
       }).catch(done);
     }, function saveIde(done) {
-      IDE.insert({
+      var obj = {
         name: req.body.name,
         dir: req.body.dir,
         port: port,
         user: user,
         pass: pass
-      }, done);
+      };
+
+      IDE.insert(obj, function (err, doc) {
+        if (err)
+          return done(err);
+
+        _id = doc._id;
+
+        done(null);
+      });
     }
   ], function (err) {
     if (err)
@@ -89,11 +107,27 @@ function add(req, res) {
              ? res.status(500).send('internal server error')
              : null;
 
-    res.redirect('/ides');
+    res.redirect('/ides/' + _id);
+  });
+}
+
+function ide(req, res) {
+  IDE.find({_id: req.params.id}, function (err, docs) {
+    if (err)
+      return res.status(500).send('internal server error');
+    if (docs.length === 0)
+      return res.status(404).send('ide not found');
+
+    res.send(ideTpl({
+      baseaddr: config.baseaddr,
+      ide: docs[0]
+    }));
   });
 }
 
 module.exports = {
   index: index,
-  add: add
+  addUi: addUi,
+  add: add,
+  ide: ide
 };

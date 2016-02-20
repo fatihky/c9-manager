@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>add new ide</title>
+  <style type="text/css">
+    input {
+      margin: 0 0 10px 0;
+      border: 1px solid #ccc;
+      padding: 5px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <form action="/ides" method="post"
+      enctype="application/x-www-form-urlencoded">
+    <input type="text" name="name" placeholder="ide name"/>
+    <br/>
+    <input type="text" name="dir" placeholder="directory"/>
+    <br/>
+    <input type="text" name="port" placeholder="ide port(optional)"/>
+    <br/>
+    <input type="text" name="user"
+        placeholder="ide username(optional, default will be used)"/>
+    <br/>
+    <input type="text" name="pass"
+        placeholder="ide password(optional, default will be used)"/>
+    <br/>
+    <input type="submit" value="Save"/>
+  </form>
+
+</body>
+
+</html>
