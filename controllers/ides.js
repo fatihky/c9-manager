@@ -1,6 +1,7 @@
 var path = require('path');
 var async = require('async');
 var swig = require('swig');
+var config = require('../config');
 var IDE = require('../models/ide').db;
 var portFinder = require('../helpers/port-finder');
 var portChecker = require('../helpers/port-checker');
@@ -18,7 +19,7 @@ function index(req, res) {
 
       var html = indexTpl({
         ides: data,
-        baseaddr: 'http://hz'
+        baseaddr: config.baseaddr
       });
 
       res.send(html);
