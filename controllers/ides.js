@@ -57,6 +57,12 @@ function add(req, res) {
 
         done({responseSent: true});
       }).catch(done);
+    }, function saveIde(done) {
+      IDE.insert({
+        name: req.body.name,
+        dir: req.body.dir,
+        port: port
+      }, done);
     }
   ], function (err) {
     if (err)
@@ -64,8 +70,7 @@ function add(req, res) {
              ? res.status(500).send('internal server error')
              : null;
 
-    res.send('port: ' + port);
-    // res.redirect('/');
+    res.redirect('/ides');
   });
 }
 

@@ -11,12 +11,15 @@ function checkDB(port, cb) {
     if (docs.length === 0)
       return cb(null, false);
 
-    check(port + 1, cb);
+    // this port is used by a ide
+    cb(null, true);
   });
 }
 
 function checkGeneral(port, cb) {
   var socket = new net.Socket();
+
+  console.log('port type:', typeof port);
 
   socket.connect(port, '127.0.0.1', function (err) {
     socket.end();
@@ -42,7 +45,7 @@ function check(port, cb) {
     throw new Error('Port must be a number.');
 
   if (typeof cb === 'function')
-    return checkGeneral(cb);
+    return checkGeneral(port, cb);
 
   return new Promise(function promiseCB(resolve, reject) {
     checkGeneral(port, function (err, res) {
