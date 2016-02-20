@@ -135,10 +135,17 @@ function start(req, res) {
   })
 }
 
+function remove(req, res) {
+  IDE.remove({_id: req.params.id}, function (err, res) {
+    res.redirect('/ides');
+  });
+}
+
 module.exports = {
   index: index,
   addUi: addUi,
   add: add,
   ide: ide,
-  start: start
+  start: start,
+  remove: remove
 };

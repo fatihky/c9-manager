@@ -6,6 +6,7 @@ function apply(app) {
   app.post('/ides', ides.add);
   app.get('/ides/:id', ides.ide);
   app.get('/ides/start/:id', ides.start);
+  app.get('/ides/remove/:id', ides.remove);
 }
 
 module.exports = apply;
