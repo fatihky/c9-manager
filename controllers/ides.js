@@ -5,6 +5,7 @@ var config = require('../config');
 var IDE = require('../models/ide').db;
 var portFinder = require('../helpers/port-finder');
 var portChecker = require('../helpers/port-checker');
+var startIDE = require('../helpers/start-ide');
 var indexTpl = swig.compileFile(
                 path.resolve(path.join(__dirname, '../views/ides.html')));
 var addTpl = swig.compileFile(
@@ -125,9 +126,19 @@ function ide(req, res) {
   });
 }
 
+function start(req, res) {
+  startIDE(req.params.id, function (err, result) {
+    res.json({
+      err: err,
+      result: result
+    });
+  })
+}
+
 module.exports = {
   index: index,
   addUi: addUi,
   add: add,
-  ide: ide
+  ide: ide,
+  start: start
 };
