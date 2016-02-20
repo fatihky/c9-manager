@@ -19,8 +19,6 @@ function checkDB(port, cb) {
 function checkGeneral(port, cb) {
   var socket = new net.Socket();
 
-  console.log('port type:', typeof port);
-
   socket.connect(port, '127.0.0.1', function (err) {
     socket.end();
 
