@@ -1,7 +1,11 @@
+var path = require('path');
 var async = require('async');
+var swig = require('swig');
 var IDE = require('../models/ide').db;
 var portFinder = require('../helpers/port-finder');
 var portChecker = require('../helpers/port-checker');
+var indexTpl = swig.compileFile(
+                path.resolve(path.join(__dirname, '../views/ides.html')));
 
 function index(req, res) {
   IDE
@@ -12,7 +16,12 @@ function index(req, res) {
       if (err)
         return res.status(500).send('internal server error');
 
-      res.json(data);
+      var html = indexTpl({
+        ides: data,
+        baseaddr: 'http://hz'
+      });
+
+      res.send(html);
     });
 }
 

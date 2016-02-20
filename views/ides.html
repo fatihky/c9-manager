@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>ides</title>
+</head>
+
+<body>
+  {% for ide in ides %}
+    {{ ide.name }} - port: {{ ide.port }}
+      <a href="{{baseaddr}}:{{ide.port}}/ide.html" target="_blank">
+        [open in new tab]
+      </a>
+  {% endfor %}
+</body>
+
+</html>
