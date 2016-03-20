@@ -1,3 +1,4 @@
+const spawn = require('child_process').spawn;
 var path = require('path');
 var async = require('async');
 var swig = require('swig');
@@ -136,8 +137,18 @@ function start(req, res) {
 }
 
 function remove(req, res) {
-  IDE.remove({_id: req.params.id}, function (err, result) {
-    res.redirect('/ides');
+  IDE.find({_id: req.params.id}, function(err, docs) {
+    if (err)
+      return res.status(500).end(err);
+    if (docs.length === 0)
+      return res.status(404).end('ide not found');
+
+    spawn('pkill', ['-f', docs[0].port])
+      .on('error', function () {/* noop */});
+
+    IDE.remove({_id: req.params.id}, function (err, result) {
+      res.redirect('/ides');
+    });
   });
 }
 
