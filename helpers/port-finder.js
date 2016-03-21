@@ -10,13 +10,15 @@ var check = require('./port-checker');
 // and recursively calls find function until find avaliable port
 function findGeneral(port, cb) {
   check(port)
-    .then(res => {
+    .then(function (res) {
       if (res === false)
         return cb(null, port);
 
       find(port + 1, cb);
     })
-    .catch(err => cb (err));
+    .catch(function (err) {
+      cb (err)
+    });
 }
 
 /**

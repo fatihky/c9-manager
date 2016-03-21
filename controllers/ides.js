@@ -77,7 +77,7 @@ function add(req, res) {
       if (checkPort !== true)
         return process.nextTick(done);
 
-      portChecker(port).then(isUsed => {
+      portChecker(port).then(function (isUsed) {
         if (!isUsed)
           return done();
 

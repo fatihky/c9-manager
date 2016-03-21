@@ -88,15 +88,15 @@ function startIDE(ide, cb) {
       var stdout = '';
       var stderr = '';
 
-      cmd.stdout.on('data', (data) => {
+      cmd.stdout.on('data', function (data) {
         stdout += data;
       });
 
-      cmd.stderr.on('data', (data) => {
+      cmd.stderr.on('data', function (data) {
         stderr += data;
       });
 
-      cmd.on('close', (code) => {
+      cmd.on('close', function (code) {
         if (code != 0) {
           console.log('exit code:', code);
           console.log('stdout:', stdout);
