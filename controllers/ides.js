@@ -17,14 +17,16 @@ var ideTpl = swig.compileFile(
 function index(req, res) {
   IDE
     .find()
-    .skip(0)
-    .limit(10)
+    .skip(skip)
+    .limit(1000)
     .exec(function (err, data) {
       if (err)
         return res.status(500).send('internal server error');
 
+      ides = ides.concat(data);
+
       var html = indexTpl({
-        ides: data,
+        ides: ides,
         baseaddr: config.baseaddr
       });
 
@@ -114,7 +116,7 @@ function add(req, res) {
 }
 
 function ide(req, res) {
-  IDE.find({_id: req.params.id}, function (err, docs) {
+  IDE.find({_id: req.params.id}).limit(100).exec(function (err, docs) {
     if (err)
       return res.status(500).send('internal server error');
     if (docs.length === 0)
