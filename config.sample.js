@@ -7,5 +7,7 @@ module.exports = {
   startPort: 6321,
   // default auth details
   defaultUserName: 'foo',
-  defaultPassword: 'bar'
+  defaultPassword: 'bar',
+  c9sdkDir: '/opt/c9sdk',
+  serverExecutable: '/opt/c9sdk/server.js'
 };

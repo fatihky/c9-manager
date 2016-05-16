@@ -1,0 +1,319 @@
+{
+    "console": {
+        "@expanded": true,
+        "@height": 258,
+        "@maximized": "false",
+        "json()": {
+            "meta": {
+                "accessList": [
+                    "tab0",
+                    "tab1"
+                ]
+            },
+            "name": "pane1",
+            "nodes": [
+                {
+                    "type": "tab",
+                    "name": "tab0",
+                    "path": "",
+                    "className": [
+                        "tab0",
+                        "focus"
+                    ],
+                    "document": {
+                        "changed": false,
+                        "meta": {
+                            "timestamp": 1463425009964
+                        },
+                        "filter": true,
+                        "title": "bash - \"f\"",
+                        "tooltip": "bash - \"f\"",
+                        "terminal": {
+                            "id": "devel_254",
+                            "cwd": "",
+                            "width": 1094,
+                            "height": 232
+                        }
+                    },
+                    "editorType": "terminal",
+                    "active": true
+                },
+                {
+                    "type": "tab",
+                    "name": "tab1",
+                    "path": "",
+                    "className": [],
+                    "document": {
+                        "title": "Immediate",
+                        "meta": {},
+                        "filter": true,
+                        "changed": false
+                    },
+                    "editorType": "immediate",
+                    "active": false
+                }
+            ],
+            "skin": "editor_tab",
+            "skinset": "default",
+            "type": "pane"
+        }
+    },
+    "experiments": {
+        "@@enabled": true,
+        "@autosave": 0,
+        "@flat-dark": 0,
+        "@git": 1,
+        "@go_completion": 0,
+        "@mount": 0,
+        "@plugin-manager": 1,
+        "@plugins": 0,
+        "@sdk": 0,
+        "@test": 0
+    },
+    "ext": {
+        "counters": {
+            "@ace": 1,
+            "@ace.repl": 1,
+            "@acestatus": 1,
+            "@divider": 4,
+            "@document": 9,
+            "@form": 5,
+            "@menu": 8,
+            "@menuitem": 19,
+            "@pane": 2,
+            "@session": 8,
+            "@tab": 9,
+            "@tree": 2,
+            "@undoManager": 9
+        }
+    },
+    "findinfiles": {
+        "@console": "true",
+        "@matchcase": "false",
+        "@regex": "false",
+        "@wholeword": "false"
+    },
+    "menus": {
+        "@minimized": "false"
+    },
+    "nak": {
+        "@installed": true
+    },
+    "panecycle": {
+        "json()": [
+            "tab0",
+            "tab5"
+        ]
+    },
+    "panels": {
+        "@active-left": "tree",
+        "commands.panel": {
+            "@enabled": "true",
+            "@name": "commands.panel"
+        },
+        "debugger": {
+            "@enabled": "true",
+            "@name": "debugger"
+        },
+        "navigate": {
+            "@enabled": "true",
+            "@name": "navigate"
+        },
+        "outline": {
+            "@enabled": "true",
+            "@name": "outline"
+        },
+        "scm": {
+            "@enabled": "true",
+            "@name": "scm"
+        },
+        "tree": {
+            "@enabled": "true",
+            "@name": "tree"
+        }
+    },
+    "projecttree": {
+        "@showfs": true,
+        "expanded": {
+            "json()": [
+                "/",
+                "/controllers",
+                "/helpers"
+            ]
+        }
+    },
+    "tabs": {
+        "json()": {
+            "focus": "/config.sample.js",
+            "meta": {
+                "accessList": [
+                    "tab5",
+                    "tab6",
+                    "tab4",
+                    "tab2",
+                    "tab8",
+                    "tab7",
+                    "tab3"
+                ]
+            },
+            "name": "pane0",
+            "nodes": [
+                {
+                    "type": "tab",
+                    "name": "tab2",
+                    "path": "",
+                    "className": [
+                        "tab2"
+                    ],
+                    "document": {
+                        "changed": false,
+                        "meta": {
+                            "timestamp": 1463425149404
+                        },
+                        "filter": true,
+                        "title": "Compare start-ide.js",
+                        "diffview": {
+                            "oldPath": "PREVIOUS:helpers/start-ide.js",
+                            "newPath": "MODIFIED:helpers/start-ide.js"
+                        }
+                    },
+                    "editorType": "diffview",
+                    "active": false
+                },
+                {
+                    "type": "tab",
+                    "name": "tab3",
+                    "path": "/controllers/ides.js",
+                    "className": [
+                        "tab3"
+                    ],
+                    "document": {
+                        "changed": false,
+                        "meta": {
+                            "timestamp": 1463424779750
+                        },
+                        "filter": true,
+                        "title": "ides.js",
+                        "tooltip": "/controllers/ides.js",
+                        "ace": {}
+                    },
+                    "editorType": "ace",
+                    "active": false
+                },
+                {
+                    "type": "tab",
+                    "name": "tab4",
+                    "path": "/helpers/start-ide.js",
+                    "className": [
+                        "tab4"
+                    ],
+                    "document": {
+                        "changed": false,
+                        "meta": {
+                            "timestamp": 1463425395142
+                        },
+                        "filter": true,
+                        "title": "start-ide.js",
+                        "tooltip": "/helpers/start-ide.js",
+                        "ace": {}
+                    },
+                    "editorType": "ace",
+                    "active": false
+                },
+                {
+                    "type": "tab",
+                    "name": "tab5",
+                    "path": "/config.sample.js",
+                    "className": [
+                        "tab5",
+                        "focus"
+                    ],
+                    "document": {
+                        "changed": false,
+                        "meta": {
+                            "timestamp": 1463425289617
+                        },
+                        "filter": true,
+                        "title": "config.sample.js",
+                        "tooltip": "/config.sample.js",
+                        "ace": {}
+                    },
+                    "editorType": "ace",
+                    "active": true
+                },
+                {
+                    "type": "tab",
+                    "name": "tab6",
+                    "path": "/config.js",
+                    "className": [
+                        "tab6"
+                    ],
+                    "document": {
+                        "changed": false,
+                        "meta": {
+                            "timestamp": 1463425279866
+                        },
+                        "filter": true,
+                        "title": "config.js",
+                        "tooltip": "/config.js",
+                        "ace": {}
+                    },
+                    "editorType": "ace",
+                    "active": false
+                },
+                {
+                    "type": "tab",
+                    "name": "tab7",
+                    "path": "",
+                    "className": [
+                        "tab7"
+                    ],
+                    "document": {
+                        "changed": false,
+                        "meta": {
+                            "timestamp": 1463425344063
+                        },
+                        "filter": true,
+                        "title": "Compare MODIFIED:config.sample.js",
+                        "diffview": {
+                            "oldPath": "PREVIOUS:config.sample.js",
+                            "newPath": "MODIFIED:config.sample.js"
+                        }
+                    },
+                    "editorType": "diffview",
+                    "active": false
+                },
+                {
+                    "type": "tab",
+                    "name": "tab8",
+                    "path": "",
+                    "className": [
+                        "tab8"
+                    ],
+                    "document": {
+                        "changed": false,
+                        "meta": {
+                            "timestamp": 1463425349724
+                        },
+                        "filter": true,
+                        "title": "Compare ides.js",
+                        "diffview": {
+                            "oldPath": "PREVIOUS:controllers/ides.js",
+                            "newPath": "MODIFIED:controllers/ides.js"
+                        }
+                    },
+                    "editorType": "diffview",
+                    "active": false
+                }
+            ],
+            "skin": "editor_tab",
+            "skinset": "default",
+            "type": "pane"
+        }
+    },
+    "tree_selection": {
+        "json()": [
+            "/config.js"
+        ]
+    }
+}

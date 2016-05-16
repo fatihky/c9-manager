@@ -15,9 +15,10 @@ var ideTpl = swig.compileFile(
                 path.resolve(path.join(__dirname, '../views/ide.html')));
 
 function index(req, res) {
+  var ides = [];
   IDE
     .find()
-    .skip(skip)
+    .skip(0)
     .limit(1000)
     .exec(function (err, data) {
       if (err)

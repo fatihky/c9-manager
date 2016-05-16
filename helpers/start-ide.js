@@ -9,8 +9,8 @@ const config = require('../config');
 const IDE = require('../models/ide').db;
 const portChecker = require('../helpers/port-checker');
 const pidsdir = path.resolve(path.join(__dirname, '..', 'pids'));
-const c9sdkDir = '/opt/c9sdk';
-const serverExecutable = '/opt/c9sdk/server.js';
+const c9sdkDir = config.c9sdkDir;
+const serverExecutable = config.serverExecutable;
 
 function genPidPath(port) {
   return path.join(pidsdir, port + '.pid');
