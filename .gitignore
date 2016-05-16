@@ -1,3 +1,6 @@
+# c9 ide
+.c9/
+
 # Config file
 /config.js
 
