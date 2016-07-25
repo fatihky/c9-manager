@@ -25,6 +25,9 @@ function index(req, res) {
         return res.status(500).send('internal server error');
 
       ides = ides.concat(data);
+      ides.sort(function (a, b) {
+        return a.port > b.port ? 1 : -1;
+      });
 
       var html = indexTpl({
         ides: ides,
