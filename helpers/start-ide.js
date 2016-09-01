@@ -83,7 +83,8 @@ function startIDE(ide, cb) {
         // set authentication
         '-a', user + ':' + pass,
         // set workspace directory
-        '-w', ide.dir
+        '-w', ide.dir,
+        '--packed'
       ]);
       var stdout = '';
       var stderr = '';
