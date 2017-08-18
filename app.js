@@ -1,9 +1,11 @@
 var express = require('express');
 var bodyParser = require('body-parser');
-var app = express();
+var argv = require('minimist')(process.argv.slice(2));
 var config = require('./config');
 var routes = require('./routes');
 var IDE = require('./models/ide').db;
+
+var app = express();
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -14,7 +16,9 @@ app.use(bodyParser.json());
 // apply routes
 routes(app);
 
-app.listen(config.httpPort, '0.0.0.0', function () {
-  console.log('Application listening on http://localhost:' + config.httpPort);
-  console.log('Go to the http://localhost:' + config.httpPort + '/ides to see and manage your ides.');
+var port = argv.port || config.httpPort;
+
+app.listen(port, '0.0.0.0', function () {
+  console.log('Application listening on http://localhost:' + port);
+  console.log('Go to the http://localhost:' + port + '/ides to see and manage your ides.');
 });
